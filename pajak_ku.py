@@ -700,33 +700,43 @@ HTML_TEMPLATE = """
 
 <div class="app-shell">
     <nav class="sidebar list-group" id="myTab" role="tablist">
-        <div class="side-group-label">Ringkasan</div>
+        <div class="side-group-label">Isi Berurutan Mulai dari 1</div>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-identitas" data-bs-toggle="list" href="#identitas" role="tab"><i class="bi bi-person-vcard"></i>1. Identitas</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-tanggungan" data-bs-toggle="list" href="#tanggungan" role="tab"><i class="bi bi-people"></i>2. Tanggungan</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-pekerjaan" data-bs-toggle="list" href="#pekerjaan" role="tab"><i class="bi bi-briefcase"></i>3. Pekerjaan</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-penghasilanlain" data-bs-toggle="list" href="#penghasilanlain" role="tab"><i class="bi bi-cash-coin"></i>4. Penghasilan Lain</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-utang" data-bs-toggle="list" href="#utang" role="tab"><i class="bi bi-credit-card"></i>5. Utang</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-kas" data-bs-toggle="list" href="#kas" role="tab"><i class="bi bi-wallet2"></i>6. Kas</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-piutang" data-bs-toggle="list" href="#piutang" role="tab"><i class="bi bi-receipt"></i>7. Piutang</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-investasi" data-bs-toggle="list" href="#investasi" role="tab"><i class="bi bi-graph-up-arrow"></i>8. Investasi</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-bergerak" data-bs-toggle="list" href="#bergerak" role="tab"><i class="bi bi-car-front"></i>9. Bergerak</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-tidakbergerak" data-bs-toggle="list" href="#tidakbergerak" role="tab"><i class="bi bi-house"></i>10. Tidak Bergerak</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-lainnya" data-bs-toggle="list" href="#lainnya" role="tab"><i class="bi bi-box-seam"></i>11. Lainnya</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-review" data-bs-toggle="list" href="#review" role="tab"><i class="bi bi-clipboard-check"></i>12. Review & Estimasi</a>
+        <div class="side-group-label">Alat Bantu (kapan saja)</div>
         <a class="list-group-item list-group-item-action side-link active" id="tab-btn-dashboard" data-bs-toggle="list" href="#dashboard" role="tab"><i class="bi bi-speedometer2"></i>Dashboard</a>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-review" data-bs-toggle="list" href="#review" role="tab"><i class="bi bi-clipboard-check"></i>Review & Estimasi</a>
-        <div class="side-group-label">Bantuan</div>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-tanya" data-bs-toggle="list" href="#tanya" role="tab"><i class="bi bi-search-heart"></i>Tanya / Klasifikasi</a>
-        <div class="side-group-label">Pencatatan</div>
         <a class="list-group-item list-group-item-action side-link" id="tab-btn-catatan" data-bs-toggle="list" href="#catatan" role="tab"><i class="bi bi-journal-text"></i>Catatan Penghasilan</a>
-        <div class="side-group-label">Penghasilan</div>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-pekerjaan" data-bs-toggle="list" href="#pekerjaan" role="tab"><i class="bi bi-briefcase"></i>Pekerjaan</a>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-penghasilanlain" data-bs-toggle="list" href="#penghasilanlain" role="tab"><i class="bi bi-cash-coin"></i>Penghasilan Lain</a>
-        <div class="side-group-label">Keluarga & Utang</div>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-tanggungan" data-bs-toggle="list" href="#tanggungan" role="tab"><i class="bi bi-people"></i>Tanggungan</a>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-utang" data-bs-toggle="list" href="#utang" role="tab"><i class="bi bi-credit-card"></i>Utang</a>
-        <div class="side-group-label">Harta</div>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-kas" data-bs-toggle="list" href="#kas" role="tab"><i class="bi bi-wallet2"></i>Kas</a>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-piutang" data-bs-toggle="list" href="#piutang" role="tab"><i class="bi bi-receipt"></i>Piutang</a>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-investasi" data-bs-toggle="list" href="#investasi" role="tab"><i class="bi bi-graph-up-arrow"></i>Investasi</a>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-bergerak" data-bs-toggle="list" href="#bergerak" role="tab"><i class="bi bi-car-front"></i>Bergerak</a>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-tidakbergerak" data-bs-toggle="list" href="#tidakbergerak" role="tab"><i class="bi bi-house"></i>Tidak Bergerak</a>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-lainnya" data-bs-toggle="list" href="#lainnya" role="tab"><i class="bi bi-box-seam"></i>Lainnya</a>
-        <div class="side-group-label">Profil</div>
-        <a class="list-group-item list-group-item-action side-link" id="tab-btn-identitas" data-bs-toggle="list" href="#identitas" role="tab"><i class="bi bi-person-vcard"></i>Identitas</a>
+        <a class="list-group-item list-group-item-action side-link" id="tab-btn-tanya" data-bs-toggle="list" href="#tanya" role="tab"><i class="bi bi-search-heart"></i>Tanya / Klasifikasi</a>
     </nav>
     <main class="content">
     <div class="tab-content">
 
         <div class="tab-pane active" id="dashboard">
+            <div class="card" style="border:2px solid #0d6efd;">
+                <div class="card-header"><i class="bi bi-signpost-2"></i>Cara Pakai - Baru Pertama Kali?</div>
+                <div class="card-body">
+                    <p class="mb-2">Isi data lewat menu di sebelah kiri, <b>urut sesuai nomornya dari 1 sampai 12</b>. Tidak perlu semuanya diisi sekaligus - boleh berhenti dan lanjut kapan saja, data yang sudah masuk tidak akan hilang.</p>
+                    <ol class="mb-2 ps-3">
+                        <li><b>1. Identitas</b> - mulai dari sini: isi NIK, nama, dan Status PTKP kamu.</li>
+                        <li><b>2. Tanggungan</b> - keluarga yang biayanya kamu tanggung (kalau ada).</li>
+                        <li><b>3. Pekerjaan</b> - penghasilan gaji, sesuai bukti potong 1721-A1 dari kantor.</li>
+                        <li><b>4. Penghasilan Lain</b> - kalau ada bunga, dividen, hibah, atau zakat.</li>
+                        <li><b>5. Utang</b> sampai <b>11. Lainnya</b> - utang dan semua harta kamu (kas, saham, rumah, kendaraan, dst).</li>
+                        <li><b>12. Review & Estimasi</b> - terakhir, cek semua sudah lengkap dan lihat estimasi pajaknya.</li>
+                    </ol>
+                    <p class="mb-0 text-muted small"><i class="bi bi-info-circle"></i> Bingung suatu transaksi masuk kategori mana? Coba menu <b>Tanya / Klasifikasi</b>. Hover ikon <i class="bi bi-info-circle"></i> di setiap kolom isian untuk penjelasan.</p>
+                </div>
+            </div>
             <div class="section-label">Penghasilan & PPh Terutang</div>
             <div class="row g-3">
                 <div class="col-md-3"><div class="card stat-card"><div class="card-body text-center"><h6>Total Bruto Pekerjaan</h6><h4 id="totalGross">Rp 0</h4></div></div></div>
