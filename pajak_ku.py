@@ -668,25 +668,32 @@ HTML_TEMPLATE = """
         .sidebar .list-group-item.side-link.active { background: #0d6efd; color: white; }
         .side-link.active i { color: white; }
         .content { flex: 1 1 auto; min-width: 0; }
+        .mobile-menu-btn { display: none; }
         @media (max-width: 900px) {
-            .app-shell { flex-direction: column; padding: 0 12px; }
-            .sidebar { width: 100%; flex: none; position: static; display: flex; flex-wrap: nowrap;
-                       overflow-x: auto; gap: 4px; }
-            .side-group-label { display: none; }
-            .side-link { flex: 0 0 auto; white-space: nowrap; }
+            .topbar { padding: 10px 14px; }
+            .topbar h4 { font-size: 1.15rem; }
+            .mobile-menu-btn { display: inline-flex; }
+            .app-shell { flex-direction: column; padding: 0 12px; margin-top: 14px; }
+            .sidebar { display: none; width: 100%; flex: none; position: static;
+                       max-height: 65vh; overflow-y: auto; margin-bottom: 14px; }
+            .sidebar.mobile-open { display: flex; }
+            .row.g-2 > [class*="col-"] { flex: 0 0 100%; max-width: 100%; }
         }
     </style>
 </head>
 <body>
 <div class="topbar d-flex justify-content-between align-items-center flex-wrap gap-2">
-    <div>
-        <h4>📊 PajakSaya <small class="fw-normal" style="font-size:0.6rem;">versi Coretax PER-11/PJ/2025</small></h4>
-        <small>Aplikasi pribadi pencatatan SPT Tahunan Orang Pribadi</small>
-    </div>
     <div class="d-flex align-items-center gap-2">
-        <button class="btn btn-outline-success btn-sm" onclick="exportPdf()"><i class="bi bi-file-earmark-pdf"></i> Export Ringkasan (PDF)</button>
-        <button class="btn btn-outline-primary btn-sm" onclick="salinDariTahunLalu()"><i class="bi bi-copy"></i> Salin dari Tahun Lalu</button>
-        <label for="tahunPajak" class="mb-0 fw-semibold">Tahun Pajak</label>
+        <button class="btn btn-outline-secondary btn-sm mobile-menu-btn" onclick="toggleMobileMenu()"><i class="bi bi-list"></i></button>
+        <div>
+            <h4>📊 PajakSaya <small class="fw-normal" style="font-size:0.6rem;">versi Coretax PER-11/PJ/2025</small></h4>
+            <small>Aplikasi pribadi pencatatan SPT Tahunan Orang Pribadi</small>
+        </div>
+    </div>
+    <div class="d-flex align-items-center gap-2 flex-wrap">
+        <button class="btn btn-outline-success btn-sm" onclick="exportPdf()"><i class="bi bi-file-earmark-pdf"></i> <span class="d-none d-sm-inline">Export Ringkasan (PDF)</span></button>
+        <button class="btn btn-outline-primary btn-sm" onclick="salinDariTahunLalu()"><i class="bi bi-copy"></i> <span class="d-none d-sm-inline">Salin dari Tahun Lalu</span></button>
+        <label for="tahunPajak" class="mb-0 fw-semibold d-none d-sm-inline">Tahun Pajak</label>
         <select id="tahunPajak" class="form-select" style="width:auto;" onchange="ambilData()"></select>
     </div>
 </div>
@@ -2145,10 +2152,23 @@ window.salinDariTahunLalu = async function() {
     }
 };
 
+window.toggleMobileMenu = function() {
+    document.querySelector('.sidebar').classList.toggle('mobile-open');
+};
+
+function closeMobileMenuOnNav() {
+    document.querySelectorAll('.side-link').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.remove('mobile-open');
+        });
+    });
+}
+
 window.onload = async function() {
     populateDropdowns();
     initTahunSelect();
     attachFieldHints();
+    closeMobileMenuOnNav();
     await ambilIdentitas();
     await ambilData();
 };
